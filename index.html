@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Icebreaker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  img {
+  align:center;
+  text-algin:center;
+  max-width: 80%;
+  height: auto;
+  max-height: 95vh;
+}
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<!--
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Me</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">WHO</a></li>
+        <li><a href="#">WHAT</a></li>
+        <li><a href="#">WHERE</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+-->
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center" id="chooseOption">
+  <h3 class="margin">Icebreaker!</h3>
+  <!--<img src="bird.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350"> -->
+  <h3>Choose an option, then tell us 1 or 2 things you have in common with that character.</h3>
+</div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+  
+  <script>
+    var i;
+    for (i = 1; i < 41; i++) {
+      document.write("<a href='#persona' class='btn btn-default btn-lg' onClick='showPersona("+i+");'>"+ i + "</a>");
+    }
+  </script>
+
+  
+
+
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">
+  <h3 class="margin" id="persona">Go!</h3>
+  <!-- <div class="row text-center"> -->
+        <script>
+          var i;
+          for (i = 1; i < 41; i++) {
+            document.write("<div id='"+i+"' class='row text-center' style='display:none; float:none;'><img src='img/"+i+".jpg' alt='Image' onClick='hidePersona("+i+")'></div>");
+          }
+        </script>
+
+  <!-- </div> -->
+</div>
+
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+  <p>Good Luck!</p> 
+</footer>
+
+  <script>
+    $(document).ready(function(){
+    // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+
+      // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+
+          // Store hash
+          var hash = this.hash;
+
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+    });
+
+    function showPersona(n){
+      var divID = '#' + n;
+      $(divID).show();
+    }
+    function hidePersona(n){
+      var divID = '#' + n;
+       $(divID).hide();
+      $('html, body').animate({
+        scrollTop: $("#chooseOption").offset().top
+      }, 800);
+    }
+
+    $('.btn').click(function() {
+     
+      $(this).addClass('btn-success').removeClass('btn-primary ');
+    });
+
+  </script>
+
+</body>
+</html>
